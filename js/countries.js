@@ -1,5 +1,5 @@
 const loadCountries = () => {
-    fetch('https://jsonplaceholder.typicode.com/albums')
+    fetch('https://jsonplaceholder.typicode.com/photos')
     .then(res => res.json())
     .then(data => displayCountries(data));
 }
@@ -13,13 +13,13 @@ const displayCountries = countries => {
     
 }
 
-const getCountryHTML = country => {
+const getCountryHTML = ({id,title,userId,thumbnailUrl}) => {
     return`
     <div class="country" >
-    <h2>${country.id}</h2>
-    <h2>${country.title}</h2>
-    <h2>User id :${country.userId}</h2>
-    
+    <h2 class= "id" >${id}</h2>
+    <h2 class= "title" >${title}</h2>
+    <h2 class= "user" >User id :${userId}</h2>
+    <img class="image" src="${thumbnailUrl}">
     </div>
     `
 }
